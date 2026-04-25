@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container">
+    <div class="navbar">
+        <h2>Airtel IMS</h2>
+        <div>
+            <a th:href="@{/}">Dashboard</a>
+            <a th:href="@{/assets}">Assets</a>
+            <a th:href="@{/employees}">Employees</a>
+            <a th:href="@{/assignments}">Assignments</a>
+        </div>
+    </div>
+
+    <h1>Dashboard</h1>
+
+    <div class="dashboard">
+
+        <div class="dashboard-card">
+            <h3>Total Assets</h3>
+            <p th:text="${totalAssets}">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>In Use</h3>
+            <p th:text="${inUseAssets}">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Available</h3>
+            <p th:text="${availableAssets}">0</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Employees</h3>
+            <p th:text="${totalEmployees}">0</p>
+        </div>
+
+    </div>
+
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

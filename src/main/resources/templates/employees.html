@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employees</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<script th:src="@{/js/script.js}"></script>
+</head>
+<body>
+<div class="container">
+<div class="navbar">
+    <h2>Airtel IMS</h2>
+    <div>
+        <a th:href="@{/}">Dashboard</a>
+        <a th:href="@{/assets}">Assets</a>
+        <a th:href="@{/employees}">Employees</a>
+        <a th:href="@{/assignments}">Assignments</a>
+    </div>
+</div>
+    
+<h2>Employees</h2>
+
+<a th:href="@{/employees/new}">➕ Add Employee</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+    </tr>
+
+    <tr th:each="emp : ${employees}">
+        <td th:text="${emp.id}"></td>
+        <td th:text="${emp.name}"></td>
+        <td th:text="${emp.department}"></td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/}">Back</a>
+</div>
+</body>
+</html>

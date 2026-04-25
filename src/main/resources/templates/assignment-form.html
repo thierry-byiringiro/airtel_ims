@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Assign Asset</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <h2>Airtel IMS</h2>
+        <div>
+            <a th:href="@{/}">Dashboard</a>
+            <a th:href="@{/assets}">Assets</a>
+            <a th:href="@{/employees}">Employees</a>
+            <a th:href="@{/assignments}">Assignments</a>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div class="form-container">
+        <h2>Assign Asset</h2>
+
+        <form th:action="@{/assignments/assign}" method="post">
+
+            <!-- ASSET -->
+            <div class="form-group">
+                <label>Select Asset</label>
+                <select name="assetId" required>
+                    <option value="" disabled selected>Select an asset</option>
+                    <option th:each="asset : ${assets}"
+                            th:value="${asset.id}"
+                            th:text="${asset.name + ' - ' + asset.serialNumber}">
+                    </option>
+                </select>
+                <span class="form-note">Only available assets should be selected</span>
+            </div>
+
+            <!-- EMPLOYEE -->
+            <div class="form-group">
+                <label>Select Employee</label>
+                <select name="employeeId" required>
+                    <option value="" disabled selected>Select an employee</option>
+                    <option th:each="emp : ${employees}"
+                            th:value="${emp.id}"
+                            th:text="${emp.name}">
+                    </option>
+                </select>
+            </div>
+
+            <!-- BUTTONS -->
+            <div class="form-actions">
+                <a th:href="@{/assignments}" class="btn-secondary">Back</a>
+                <button type="submit" class="btn-primary">Assign Asset</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

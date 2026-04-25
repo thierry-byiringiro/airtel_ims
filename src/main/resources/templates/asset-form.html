@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<script th:src="@{/js/script.js}"></script>
+</head>
+<body>
+<div class="container">
+<div class="navbar">
+    <h2>Airtel IMS</h2>
+    <div>
+        <a th:href="@{/}">Dashboard</a>
+        <a th:href="@{/assets}">Assets</a>
+        <a th:href="@{/employees}">Employees</a>
+        <a th:href="@{/assignments}">Assignments</a>
+    </div>
+</div>
+    <div class="form-container">
+        <h2>Add Asset</h2>
+
+        <form th:action="@{/assets/save}" method="post" th:object="${asset}">
+
+            <div class="form-group">
+                <label>Device Name</label>
+                <input type="text" th:field="*{name}" placeholder="e.g. Laptop" required>
+            </div>
+
+            <div class="form-group">
+                <label>Serial Number</label>
+                <input type="text" th:field="*{serialNumber}" placeholder="Enter serial number" required>
+            </div>
+
+            <div class="form-group">
+                <label>Model</label>
+                <input type="text" th:field="*{model}" placeholder="e.g. Dell XPS 13">
+            </div>
+
+            <div class="form-group">
+                <label>Department</label>
+                <input type="text" th:field="*{department}" placeholder="e.g. IT Department">
+            </div>
+
+            <div class="form-actions">
+                <a th:href="@{/assets}" class="btn-secondary">Back</a>
+                <button type="submit" class="btn-primary">Save Asset</button>
+            </div>
+
+        </form>
+    </div>
+
+<br>
+<a th:href="@{/assets}">Back</a>
+</div>
+</body>
+</html>

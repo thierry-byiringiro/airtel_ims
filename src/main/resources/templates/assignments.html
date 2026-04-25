@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Assignments</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<script th:src="@{/js/script.js}"></script>
+</head>
+<body>
+<div class="container">
+<div class="navbar">
+    <h2>Airtel IMS</h2>
+    <div>
+        <a th:href="@{/}">Dashboard</a>
+        <a th:href="@{/assets}">Assets</a>
+        <a th:href="@{/employees}">Employees</a>
+        <a th:href="@{/assignments}">Assignments</a>
+    </div>
+</div>
+    
+	<h2>Assignments</h2>
+
+<a th:href="@{/assignments/new}">➕ New Assignment</a>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Asset</th>
+        <th>Employee</th>
+        <th>Issue Date</th>
+        <th>Return Date</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="a : ${assignments}">
+        <td th:text="${a.id}"></td>
+        <td th:text="${a.asset.name}"></td>
+        <td th:text="${a.employee.name}"></td>
+        <td th:text="${a.issueDate}"></td>
+        <td th:text="${a.returnDate}"></td>
+        <td>
+            <a th:href="@{'/assignments/return/' + ${a.id}}">Return</a>
+        </td>
+    </tr>
+</table>
+
+<br>
+<a th:href="@{/}">Back</a>
+</div>
+</body>
+</html>
